@@ -9,45 +9,45 @@
 <body>
 
     <header>
-        <h1>Cidadania Digital & Inteligência Artificial</h1>
+        <h1>Cidadania Digital &amp; Inteligência Artificial</h1>
         <p>Navegando com ética, segurança e responsabilidade no mundo automatizado.</p>
     </header>
 
     <main class="container">
-        <section class="card">
-            <h2>O que é ser um Cidadão Digital na era da IA?</h2>
+        <section class="card" aria-labelledby="intro-title">
+            <h2 id="intro-title">O que é ser um Cidadão Digital na era da IA?</h2>
             <p>Ser um cidadão digital significa usar a tecnologia de forma <strong>ética, segura e crítica</strong>. Com o avanço da Inteligência Artificial, esse papel se tornou ainda mais importante. Precisamos aprender a lidar com algoritmos, proteger nossos dados e combater a desinformação.</p>
             
             <div class="pillars">
                 <div class="pillar-box">
-                    <h3>Etica</h3>
-                    <p>Não usar a IA para plagiar, criar deepfakes ou espalhar mentiras.</p>
+                    <h3>Ética</h3>
+                    <p>Não usar a IA para plagiar, criar deepfakes ou espalhar mentiras nas redes.</p>
                 </div>
                 <div class="pillar-box">
                     <h3>Privacidade</h3>
-                    <p>Cuidado com os dados pessoais que você fornece aos modelos de IA.</p>
+                    <p>Atenção redobrada com os dados pessoais que você fornece ao interagir com modelos de IA.</p>
                 </div>
                 <div class="pillar-box">
                     <h3>Pensamento Crítico</h3>
-                    <p>Questionar as respostas da IA e sempre checar as fontes de informação.</p>
+                    <p>Questionar os resultados gerados por IA e sempre verificar as fontes da informação.</p>
                 </div>
             </div>
         </section>
 
-        <section class="card quiz-section">
-            <h2>Desafio da Cidadania Digital</h2>
+        <section class="card quiz-section" aria-labelledby="quiz-title">
+            <h2 id="quiz-title">Desafio da Cidadania Digital</h2>
             <p>Será que você sabe agir corretamente online? Responda à questão abaixo:</p>
             
             <div class="quiz-container">
                 <p class="question"><strong>Pergunta:</strong> Você encontrou uma imagem impressionante nas redes sociais, mas suspeita que ela foi criada por uma Inteligência Artificial para espalhar uma notícia falsa. O que você faz?</p>
                 
-                <div class="options">
-                    <button class="option-btn" onclick="checkAnswer(false, this)">Compartilho imediatamente, pois é muito chocante.</button>
-                    <button class="option-btn" onclick="checkAnswer(true, this)">Não compartilho e pesquiso em fontes confiáveis para ver se é real.</button>
-                    <button class="option-btn" onclick="checkAnswer(false, this)">Comento na foto criticando, mas ajudo a engajar o post.</button>
+                <div class="options" id="quiz-options">
+                    <button class="option-btn" data-correct="false">Compartilho imediatamente, pois é muito chocante.</button>
+                    <button class="option-btn" data-correct="true">Não compartilho e pesquiso em fontes confiáveis para ver se é real.</button>
+                    <button class="option-btn" data-correct="false">Comento na foto criticando, mas ajudo a engajar o post.</button>
                 </div>
 
-                <div id="feedback" class="feedback hidden"></div>
+                <div id="feedback" class="feedback hidden" role="alert"></div>
             </div>
         </section>
     </main>
