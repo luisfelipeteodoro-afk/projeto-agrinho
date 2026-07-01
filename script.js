@@ -2,27 +2,23 @@ function checkAnswer(isCorrect, selectedButton) {
     const feedbackDiv = document.getElementById('feedback');
     const allButtons = document.querySelectorAll('.option-btn');
 
-    // Desabilita todos os botões após a escolha para o usuário não clicar várias vezes
+    if (!feedbackDiv || !selectedButton) return;
+
+    // 1. Desabilita e estiliza todos os botões de uma vez
     allButtons.forEach(button => {
         button.disabled = true;
-        button.style.opacity = '0.6';
+        button.classList.add('disabled-option');
     });
 
-    // Destaca o botão selecionado
-    selectedButton.style.opacity = '1';
+    // 2. Destaca o botão que o usuário clicou
+    selectedButton.classList.remove('disabled-option');
+    selectedButton.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
 
-    // Mostra o feedback baseado na resposta
+    // 3. Configura e exibe o feedback
     feedbackDiv.classList.remove('hidden');
+    feedbackDiv.className = `feedback ${isCorrect ? 'correct' : 'wrong'}`;
     
-    if (isCorrect) {
-        feedbackDiv.textContent = "🏆 Parabéns! Você agiu como um verdadeiro cidadão digital. Investigar antes de compartilhar evita a propagação de fake news geradas por IA.";
-        feedbackDiv.className = "feedback correct";
-        selectedButton.style.borderColor = "#10b981";
-        selectedButton.style.backgroundColor = "#d1fae5";
-    } else {
-        feedbackDiv.textContent = "❌ Não é a melhor opção. Compartilhar sem checar ou interagir com posts falsos ajuda a espalhar desinformação. O correto é sempre checar as fontes.";
-        feedbackDiv.className = "feedback wrong";
-        selectedButton.style.borderColor = "#ef4444";
-        selectedButton.style.backgroundColor = "#fee2e2";
-    }
+    feedbackDiv.textContent = isCorrect 
+        ? "🏆 Parabéns! Você agiu como um verdadeiro cidadão digital. Investigar antes de compartilhar evita a propagação de fake news geradas por IA."
+        : "❌ Não é a melhor opção. Compartilhar sem checar ou interagir com posts falsos ajuda a espalhar desinformação. O correto é sempre checar as fontes.";
 }
